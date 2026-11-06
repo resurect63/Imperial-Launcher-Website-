@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#07110e">
+    <meta name="description" content="Imperial Launcher - A modern Minecraft launcher.">
+
+    <title>Imperial Launcher</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="#home" class="logo">
+        <div class="logo-icon">I</div>
+
+        <div>
+            <strong>IMPERIAL</strong>
+            <small>MINECRAFT LAUNCHER</small>
+        </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav id="nav">
+        <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+        <a href="#features" data-fa="امکانات" data-en="Features">امکانات</a>
+        <a href="#news" data-fa="اخبار" data-en="News">اخبار</a>
+        <a href="#about" data-fa="درباره ما" data-en="About">درباره ما</a>
+        <a href="#faq" data-fa="سؤالات متداول" data-en="FAQ">سؤالات متداول</a>
+    </nav>
+
+    <div class="header-actions">
+        <button id="languageBtn" class="language-btn">EN</button>
+
+        <a class="button primary"
+           href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
+           target="_blank">
+            <span data-fa="دانلود لانچر" data-en="Download Launcher">دانلود لانچر</span>
+            ↗
+        </a>
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero section" id="home">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span class="dot"></span>
+                <span data-fa="لانچر مدرن ماینکرفت"
+                      data-en="A Modern Minecraft Launcher">
+                    لانچر مدرن ماینکرفت
+                </span>
+            </div>
+
+            <h1>
+                <span data-fa="ماجراجویی تو،"
+                      data-en="YOUR WORLD,">
+                    ماجراجویی تو،
+                </span>
+
+                <br>
+
+                <span class="green"
+                      data-fa="از اینجا شروع می‌شه."
+                      data-en="YOUR NEXT ERA.">
+                    از اینجا شروع می‌شه.
+                </span>
+            </h1>
+
+            <p data-fa="نسخه‌های ماینکرفت، مودها و تجربه بازی‌ات را در یک محیط یکپارچه مدیریت کن. ساده، سریع و ساخته‌شده برای دنیای تو."
+               data-en="Manage Minecraft versions, mods, and your gaming experience in one place. Simple, fast, and made for your world.">
+                نسخه‌های ماینکرفت، مودها و تجربه بازی‌ات را در یک محیط یکپارچه مدیریت کن.
+                ساده، سریع و ساخته‌شده برای دنیای تو.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a class="button primary large"
+                   href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
+                   target="_blank">
+                    ▶
+                    <span data-fa="دریافت Imperial Launcher"
+                          data-en="Get Imperial Launcher">
+                        دریافت Imperial Launcher
+                    </span>
+                    ↗
+                </a>
+
+                <a href="#features" class="button secondary large">
+                    <span data-fa="مشاهده امکانات"
+                          data-en="Explore Features">
+                        مشاهده امکانات
+                    </span>
+                </a>
+
+            </div>
+
+            <div class="hero-note">
+                <span class="dot"></span>
+                <span data-fa="طراحی‌شده برای Minecraft Java Edition"
+                      data-en="Designed for Minecraft Java Edition">
+                    طراحی‌شده برای Minecraft Java Edition
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="hero-art">
+
+            <div class="art-header">
+                <strong>◆ IMPERIAL</strong>
+                <span class="status">
+                    <i></i>
+                    LAUNCHER READY
+                </span>
+            </div>
+
+            <div class="landscape">
+
+                <div class="moon"></div>
+                <div class="mountain back"></div>
+                <div class="mountain front"></div>
+
+                <div class="tower">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="art-footer">
+
+                <div>
+                    <small data-fa="نسخه انتخاب‌شده"
+                           data-en="SELECTED VERSION">
+                        نسخه انتخاب‌شده
+                    </small>
+
+                    <strong>1.21.x</strong>
+
+                    <small class="green">
+                        ● READY TO CONFIGURE
+                    </small>
+                </div>
+
+                <div class="art-caption">
+                    YOUR WORLD<br>
+                    YOUR LEGACY
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="section" id="features">
+
+        <div class="section-title">
+
+            <div>
+                <span class="eyebrow">FEATURES</span>
+
+                <h2 data-fa="امکانات Imperial Launcher"
+                    data-en="Imperial Launcher Features">
+                    امکانات Imperial Launcher
+                </h2>
+            </div>
+
+            <p data-fa="تمام ابزارهای موردنیاز برای مدیریت تجربه ماینکرفت."
+               data-en="Everything you need to manage your Minecraft experience.">
+                تمام ابزارهای موردنیاز برای مدیریت تجربه ماینکرفت.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <article class="feature-card">
+                <div class="feature-icon">▦</div>
+                <span class="number">01 / LIBRARY</span>
+
+                <h3 data-fa="کتابخانه نسخه‌ها"
+                    data-en="Version Library">
+                    کتابخانه نسخه‌ها
+                </h3>
+
+                <p data-fa="نسخه‌های مختلف ماینکرفت را مدیریت و اجرا کن."
+                   data-en="Manage and launch different Minecraft versions.">
+                    نسخه‌های مختلف ماینکرفت را مدیریت و اجرا کن.
+                </p>
+            </article>
+
+
+            <article class="feature-card">
+                <div class="feature-icon purple">✦</div>
+                <span class="number">02 / MODRINTH</span>
+
+                <h3 data-fa="مودها و مودپک‌ها"
+                    data-en="Mods & Modpacks">
+                    مودها و مودپک‌ها
+                </h3>
+
+                <p data-fa="مودها و محتوای جدید را برای بازی خودت کشف کن."
+                   data-en="Discover new mods and content for your game.">
+                    مودها و محتوای جدید را برای بازی خودت کشف کن.
+                </p>
+            </article>
+
+
+            <article class="feature-card">
+                <div class="feature-icon gold">◉</div>
+                <span class="number">03 / ACCOUNT</span>
+
+                <h3 data-fa="حساب مایکروسافت"
+                    data-en="Microsoft Account">
+                    حساب مایکروسافت
+                </h3>
+
+                <p data-fa="حساب خودت را برای تجربه آنلاین به لانچر متصل کن."
+                   data-en="Connect your account for supported online gameplay.">
+                    حساب خودت را برای تجربه آنلاین به لانچر متصل کن.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- DOWNLOAD -->
+
+    <section class="download-section section" id="download">
+
+        <div class="download-icon">I</div>
+
+        <div class="download-text">
+
+            <span class="eyebrow">READY TO PLAY?</span>
+
+            <h2 data-fa="دنیای بعدی منتظر توئه."
+                data-en="Your Next World Is Waiting.">
+                دنیای بعدی منتظر توئه.
+            </h2>
+
+            <p data-fa="آخرین نسخه Imperial Launcher را دریافت کن."
+               data-en="Get the latest version of Imperial Launcher.">
+                آخرین نسخه Imperial Launcher را دریافت کن.
+            </p>
+
+        </div>
+
+        <a class="button primary large"
+           href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
+           target="_blank">
+
+            <span data-fa="دانلود آخرین نسخه"
+                  data-en="Download Latest Version">
+                دانلود آخرین نسخه
+            </span>
+
+            ↗
+
+        </a>
+
+    </section>
+
+
+    <!-- NEWS -->
+
+    <section class="section" id="news">
+
+        <div class="section-title">
+
+            <div>
+                <span class="eyebrow">IMPERIAL NEWS</span>
+
+                <h2 data-fa="اخبار و به‌روزرسانی‌ها"
+                    data-en="News & Updates">
+                    اخبار و به‌روزرسانی‌ها
+                </h2>
+            </div>
+
+            <a class="text-link"
+               href="https://github.com/resurect63/Imperial-Launcher/releases"
+               target="_blank">
+
+                <span data-fa="تمام نسخه‌ها"
+                      data-en="All Releases">
+                    تمام نسخه‌ها
+                </span>
+                ↗
+
+            </a>
+
+        </div>
+
+
+        <div class="news-grid">
+
+            <a class="news-card"
+               href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
+               target="_blank">
+
+                <div class="news-image">
+                    <span>↻</span>
+                    <small>IMPERIAL / UPDATE</small>
+                </div>
+
+                <div class="news-content">
+
+                    <span class="news-label">● OFFICIAL RELEASES</span>
+
+                    <h3 data-fa="همیشه به‌روز بمان"
+                        data-en="Stay Up To Date">
+                        همیشه به‌روز بمان
+                    </h3>
+
+                    <p data-fa="آخرین نسخه‌ها و تغییرات لانچر را دنبال کن."
+                       data-en="Follow the latest launcher versions and updates.">
+                        آخرین نسخه‌ها و تغییرات لانچر را دنبال کن.
+                    </p>
+
+                    <span class="green">VIEW RELEASES ↗</span>
+
+                </div>
+
+            </a>
+
+
+            <div class="news-card disabled-card">
+
+                <div class="news-image community">
+                    <span>✦</span>
+                    <small>COMMUNITY / SOON</small>
+                </div>
+
+                <div class="news-content">
+
+                    <span class="coming-soon">COMING SOON</span>
+
+                    <h3>PKDev</h3>
+
+                    <p data-fa="اطلاعات بیشتر به‌زودی منتشر می‌شود."
+                       data-en="More information will be available soon.">
+                        اطلاعات بیشتر به‌زودی منتشر می‌شود.
+                    </p>
+
+                    <span class="powered">
+                        Powered by <b>Resurect</b>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-section" id="about">
+
+        <div class="section about-content">
+
+            <div>
+                <span class="eyebrow">ABOUT IMPERIAL</span>
+
+                <h2 data-fa="ساخته‌شده برای دنیای تو."
+                    data-en="Made For Your World.">
+                    ساخته‌شده برای دنیای تو.
+                </h2>
+            </div>
+
+            <p data-fa="Imperial Launcher یک لانچر ویندوزی ماینکرفت است که ابزارهای مدیریت بازی را در محیطی مدرن و ساده کنار هم قرار می‌دهد. هدف ما این است که زمان کمتری صرف آماده‌سازی کنی و بیشتر از دنیای خودت لذت ببری."
+               data-en="Imperial Launcher is a Windows Minecraft launcher bringing game management tools together in a clean, modern environment. Spend less time getting ready and more time enjoying your world.">
+                Imperial Launcher یک لانچر ویندوزی ماینکرفت است که ابزارهای مدیریت بازی را در محیطی مدرن و ساده کنار هم قرار می‌دهد.
+                هدف ما این است که زمان کمتری صرف آماده‌سازی کنی و بیشتر از دنیای خودت لذت ببری.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="section" id="faq">
+
+        <div class="section-title">
+            <div>
+                <span class="eyebrow">FAQ</span>
+                <h2 data-fa="سؤالات متداول"
+                    data-en="Frequently Asked Questions">
+                    سؤالات متداول
+                </h2>
+            </div>
+        </div>
+
+
+        <div class="faq-list">
+
+            <details>
+                <summary data-fa="Imperial Launcher برای چه سیستم‌عاملی است؟"
+                         data-en="Which operating system is supported?">
+                    Imperial Launcher برای چه سیستم‌عاملی است؟
+                </summary>
+
+                <p data-fa="نسخه فعلی پروژه برای ویندوز ساخته شده است."
+                   data-en="The current project version is built for Windows.">
+                    نسخه فعلی پروژه برای ویندوز ساخته شده است.
+                </p>
+            </details>
+
+
+            <details>
+                <summary data-fa="از کجا لانچر را دانلود کنم؟"
+                         data-en="Where can I download the launcher?">
+                    از کجا لانچر را دانلود کنم؟
+                </summary>
+
+                <p data-fa="از دکمه دانلود سایت استفاده کن تا وارد صفحه انتشارهای رسمی شوی."
+                   data-en="Use the download button to visit the official releases page.">
+                    از دکمه دانلود سایت استفاده کن تا وارد صفحه انتشارهای رسمی شوی.
+                </p>
+            </details>
+
+
+            <details>
+                <summary data-fa="برای بازی آنلاین به چه حسابی نیاز دارم؟"
+                         data-en="Which account do I need for online play?">
+                    برای بازی آنلاین به چه حسابی نیاز دارم؟
+                </summary>
+
+                <p data-fa="برای سرورهایی که احراز هویت رسمی می‌خواهند، باید با حساب معتبر مایکروسافت وارد شوی."
+                   data-en="Servers requiring official authentication need a valid Microsoft account.">
+                    برای سرورهایی که احراز هویت رسمی می‌خواهند، باید با حساب معتبر مایکروسافت وارد شوی.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <a href="#home" class="logo">
+        <div class="logo-icon">I</div>
+
+        <div>
+            <strong>IMPERIAL</strong>
+            <small>MINECRAFT LAUNCHER</small>
+        </div>
+    </a>
+
+    <span>© <span id="year"></span> IMPERIAL LAUNCHER</span>
+
+    <a href="https://github.com/resurect63/Imperial-Launcher"
+       target="_blank">
+        GITHUB ↗
+    </a>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
