@@ -2,639 +2,783 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#020b09">
-<title>Imperial Launcher</title>
-
-<style>
-:root {
-  --bg: #020b09;
-  --green: #12e6a2;
-  --green2: #83ffd4;
-  --text: #f2fffb;
-  --muted: #a8bbb7;
-  --line: rgba(32,226,166,.22);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background:
-    radial-gradient(ellipse at 50% 35%, #073528 0%, transparent 50%),
-    linear-gradient(180deg, #041510, #020a09 70%, #010706);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .12;
-  background-image:
-    linear-gradient(rgba(80,255,196,.12) 1px, transparent 1px),
-    linear-gradient(90deg,rgba(80,255,196,.12) 1px, transparent 1px);
-  background-size: 55px 55px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(1100px, 92%);
-  margin: auto;
-}
-
-/* HEADER */
-
-header {
-  position: sticky;
-  top: 12px;
-  z-index: 10;
-  width: min(1100px, 94%);
-  height: 82px;
-  margin: 18px auto;
-  padding: 0 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid var(--line);
-  border-radius: 25px;
-  background: rgba(2,18,15,.88);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 10px 40px #0008;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: 4px;
-}
-
-.brand small {
-  display: block;
-  color: var(--green);
-  font-size: 11px;
-  text-align: right;
-  letter-spacing: 5px;
-  margin-top: 4px;
-}
-
-.logo {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  color: var(--green);
-  font: bold 36px Georgia;
-  border: 2px solid var(--green);
-  clip-path: polygon(50% 0,95% 25%,95% 75%,50% 100%,5% 75%,5% 25%);
-  background: #063326;
-  text-shadow: 0 0 15px var(--green);
-}
-
-nav {
-  display: flex;
-  gap: 25px;
-  color: #c5d8d2;
-  font-size: 14px;
-}
-
-nav a:hover { color: var(--green); }
-
-.menu {
-  display: none;
-  color: white;
-  font-size: 28px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-  text-align: center;
-  padding: 45px 0 75px;
-}
-
-.castle {
-  width: 100%;
-  max-width: 950px;
-  height: 480px;
-  margin: 0 auto -5px;
-  background:
-    linear-gradient(to bottom, transparent 65%, #020b09 100%),
-    url("castle.png") center 43% / cover no-repeat;
-  border-radius: 25px;
-  filter: saturate(1.15);
-}
-
-.version {
-  display: inline-block;
-  padding: 13px 27px;
-  margin: 10px auto 30px;
-  border: 1px solid var(--green);
-  border-radius: 100px;
-  color: var(--green);
-  font-weight: 900;
-  background: rgba(0,35,26,.8);
-  box-shadow: 0 0 28px #00e6a344;
-}
-
-h1 {
-  font-size: clamp(42px, 8vw, 85px);
-  line-height: 1;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: -3px;
-  margin-bottom: 25px;
-}
-
-h1 span {
-  display: block;
-  color: var(--green);
-  text-shadow: 0 0 30px #00e6a344;
-  margin-top: 10px;
-}
-
-.intro {
-  max-width: 700px;
-  margin: auto;
-  color: var(--muted);
-  font-size: 20px;
-  line-height: 1.8;
-}
-
-/* FEATURES BAR */
-
-.features {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 850px;
-  margin: 40px auto 35px;
-  padding: 18px 10px;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: rgba(2,24,19,.75);
-}
-
-.feature {
-  flex: 1;
-  min-width: 190px;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: #c4d6d1;
-}
-
-.feature b {
-  color: var(--green);
-  font-size: 26px;
-}
-
-/* DOWNLOAD */
-
-.download {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  width: min(560px, 100%);
-  padding: 22px;
-  border-radius: 18px;
-  color: #01231b;
-  background: linear-gradient(110deg, #19edb0, #00c98e);
-  font-size: 23px;
-  font-weight: 950;
-  box-shadow: 0 0 40px #00e6a34d, 0 8px 0 #007f60;
-  transition: .2s;
-}
-
-.download:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 55px #00e6a377, 0 8px 0 #007f60;
-}
-
-.edition {
-  margin-top: 35px;
-  color: var(--muted);
-  font-size: 18px;
-}
-
-/* SECTIONS */
-
-section.content {
-  padding: 65px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.section-sub {
-  text-align: center;
-  color: var(--muted);
-  line-height: 1.7;
-  margin: 0 auto 35px;
-  max-width: 650px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.card {
-  padding: 27px;
-  min-height: 175px;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: linear-gradient(145deg, #08251d, #03110e);
-  transition: .25s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--green);
-  box-shadow: 0 10px 35px #00e6a318;
-}
-
-.card .icon {
-  color: var(--green);
-  font-size: 29px;
-}
-
-.card h3 {
-  margin: 15px 0 10px;
-  font-size: 19px;
-}
-
-.card p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 14px;
-}
-
-/* ABOUT */
-
-.about-box {
-  padding: 35px;
-  border: 1px solid var(--line);
-  border-radius: 25px;
-  background: linear-gradient(110deg, #052b20, #031210);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.about-box h2 {
-  margin-bottom: 12px;
-}
-
-.about-box p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.outline {
-  display: inline-block;
-  border: 1px solid var(--green);
-  border-radius: 12px;
-  padding: 13px 20px;
-  color: var(--green);
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-/* FAQ */
-
-.faq {
-  max-width: 800px;
-  margin: auto;
-}
-
-details {
-  padding: 20px 5px;
-  border-bottom: 1px solid var(--line);
-}
-
-summary {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-details p {
-  color: var(--muted);
-  line-height: 1.7;
-  margin-top: 15px;
-}
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  padding: 35px 0 45px;
-}
-
-.powered {
-  max-width: 650px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  color: var(--muted);
-  background: rgba(3,25,20,.7);
-}
-
-.powered strong {
-  color: var(--green);
-  letter-spacing: 1px;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 25px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* MOBILE */
-
-@media(max-width: 760px) {
-  header {
-    height: 72px;
-    padding: 0 18px;
-  }
-
-  .menu { display: block; }
-
-  nav {
-    display: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    flex-direction: column;
-    background: #061711;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-  }
-
-  nav.open { display: flex; }
-
-  .brand {
-    font-size: 16px;
-    letter-spacing: 3px;
-  }
-
-  .logo {
-    width: 45px;
-    height: 45px;
-  }
-
-  .castle { height: 330px; }
-
-  .grid { grid-template-columns: 1fr; }
-
-  .feature {
-    min-width: 100%;
-    justify-content: flex-start;
-    padding-left: 25px;
-  }
-
-  .about-box {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .download { font-size: 18px; }
-
-  .section-title { font-size: 31px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07100d">
+  <meta name="description" content="Imperial Launcher — A modern Minecraft launcher built for Windows.">
+  <title>Imperial Launcher | PKDEV</title>
+
+  <style>
+    :root {
+      --bg: #070d0b;
+      --panel: #0d1712;
+      --panel-light: #122019;
+      --green: #39ff9b;
+      --green-dark: #13c875;
+      --text: #f1fff7;
+      --muted: #91a69a;
+      --border: rgba(57, 255, 155, .14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(24, 130, 76, .17), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 13, 11, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .brand-icon {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #39ff9b, #087d4b);
+      color: #04140c;
+      font-size: 23px;
+      font-weight: 900;
+      box-shadow: 0 0 25px rgba(57, 255, 155, .25);
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    .nav-download {
+      background: var(--green);
+      color: #04140c;
+      padding: 10px 18px;
+      border-radius: 9px;
+      font-weight: 800;
+    }
+
+    .nav-download:hover {
+      color: #04140c;
+      background: #8affc0;
+    }
+
+    /* HERO */
+
+    .hero {
+      text-align: center;
+      padding: 105px 0 100px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 350px;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+      background: rgba(28, 255, 137, .08);
+      filter: blur(110px);
+      pointer-events: none;
+    }
+
+    .release-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border: 1px solid rgba(57, 255, 155, .3);
+      border-radius: 30px;
+      background: rgba(57, 255, 155, .07);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      font-weight: 900;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+      text-shadow: 0 0 35px rgba(57, 255, 155, .22);
+    }
+
+    .hero p {
+      position: relative;
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-weight: 800;
+      transition: .25s;
+    }
+
+    .button-primary {
+      color: #04140c;
+      background: var(--green);
+      box-shadow: 0 0 30px rgba(57, 255, 155, .16);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-3px);
+      background: #8affc0;
+      box-shadow: 0 0 35px rgba(57, 255, 155, .3);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .03);
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .hero-note {
+      position: relative;
+      margin-top: 22px;
+      color: #71877a;
+      font-size: 12px;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 span {
+      color: var(--green);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* FEATURES */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, var(--panel-light), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 27px;
+      transition: .25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(57, 255, 155, .45);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(57, 255, 155, .1);
+      color: var(--green);
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      margin-bottom: 9px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ABOUT */
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(120deg, #102019, #0a120e);
+    }
+
+    .about-box h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .about-box h2 span {
+      color: var(--green);
+    }
+
+    .about-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 20px;
+      background: rgba(0, 0, 0, .2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-size: 20px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* UPDATES */
+
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .update-card {
+      padding: 24px;
+      border-radius: 15px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+
+    .update-tag {
+      display: inline-block;
+      color: var(--green);
+      background: rgba(57, 255, 155, .08);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .update-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .update-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FAQ */
+
+    .faq-list {
+      max-width: 760px;
+      margin: auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      padding: 19px 22px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p {
+      color: var(--muted);
+      font-size: 14px;
+      padding-top: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      background: rgba(0, 0, 0, .15);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+    }
+
+    .footer-brand span {
+      color: var(--green);
+    }
+
+    .footer-credit {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+      .navbar {
+        height: auto;
+        min-height: 70px;
+        flex-wrap: wrap;
+        padding: 13px 0;
+        gap: 14px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+        gap: 17px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 85px 0 75px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .features-grid,
+      .updates-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+
+      .section-heading h2 {
+        font-size: 28px;
+      }
+
+      .footer-content {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
-
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#about">About</a>
-    <a href="#updates">Updates</a>
-    <a href="#download">Download</a>
-  </nav>
-
-  <a href="#" class="brand">
-    <span>
-      IMPERIAL
-      <small>LAUNCHER</small>
-    </span>
-    <span class="logo">I</span>
-  </a>
-</header>
-
-<main>
-
-<div class="container hero">
-
-  <div class="castle" role="img" aria-label="Imperial fantasy castle"></div>
-
-  <div class="version">
-    VERSION 2.8.0 — RELEASED 🚀
-  </div>
-
-  <h1>
-    YOUR WORLD.
-    <span>OUR LAUNCHER.</span>
-  </h1>
-
-  <p class="intro">
-    Experience Minecraft like never before with Imperial Launcher.
-    Modern, fast and powerful — built for your next adventure.
-  </p>
-
-  <div class="features">
-    <div class="feature"><b>ϟ</b> Fast &amp; Secure</div>
-    <div class="feature"><b>◇</b> Modrinth Integration</div>
-    <div class="feature"><b>▦</b> Built for Windows</div>
-  </div>
-
-  <div id="download">
-    <a class="download"
-       href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
-       target="_blank" rel="noopener">
-      ▣ &nbsp; Download for Windows &nbsp; ↓
-    </a>
-  </div>
-
-  <div class="edition">🧱 &nbsp; Minecraft Java Edition</div>
-
-</div>
-
-<section class="content container" id="features">
-  <h2 class="section-title">Everything You Need</h2>
-  <p class="section-sub">
-    A clean launcher experience with the tools that make managing Minecraft easier.
-  </p>
-
-  <div class="grid">
-
-    <article class="card">
-      <div class="icon">◇</div>
-      <h3>Modrinth Integration</h3>
-      <p>Discover and manage your Minecraft mods with a smooth Modrinth-powered workflow.</p>
-    </article>
-
-    <article class="card">
-      <div class="icon">◈</div>
-      <h3>Microsoft Authentication</h3>
-      <p>Sign in with your Microsoft account and manage your Minecraft profile.</p>
-    </article>
-
-    <article class="card">
-      <div class="icon">⚡</div>
-      <h3>Fast &amp; Lightweight</h3>
-      <p>A modern desktop experience designed to keep your launcher simple and responsive.</p>
-    </article>
-
-    <article class="card">
-      <div class="icon">▣</div>
-      <h3>Windows Ready</h3>
-      <p>Built for Windows with a straightforward installation experience.</p>
-    </article>
-
-    <article class="card">
-      <div class="icon">☷</div>
-      <h3>Version Management</h3>
-      <p>Keep your Minecraft setup organized and choose the version that suits your play.</p>
-    </article>
-
-    <article class="card">
-      <div class="icon">✦</div>
-      <h3>Imperial Experience</h3>
-      <p>A focused interface with a distinctive look, made for your Minecraft sessions.</p>
-    </article>
-
-  </div>
-</section>
-
-<section class="content container" id="about">
-  <div class="about-box">
-    <div>
-      <h2>Built for your next adventure.</h2>
-      <p>
-        Imperial Launcher is a modern Windows Minecraft launcher built with Electron,
-        featuring Microsoft authentication, Modrinth integration, and a clean user experience.
-      </p>
-    </div>
-
-    <a class="outline"
-       href="https://github.com/resurect63/Imperial-Launcher"
-       target="_blank" rel="noopener">
-      View on GitHub ↗
-    </a>
-  </div>
-</section>
-
-<section class="content container" id="updates">
-  <h2 class="section-title">News &amp; Updates</h2>
-  <p class="section-sub">
-    Follow the project and keep up with new releases.
-  </p>
-
-  <div class="grid">
-
-    <article class="card">
-      <div class="icon">🚀</div>
-      <h3>Version 2.8.0</h3>
-      <p>Check the latest Imperial Launcher release and its release notes on GitHub.</p>
-      <br>
-      <a class="outline"
-         href="https://github.com/resurect63/Imperial-Launcher/releases"
-         target="_blank" rel="noopener">
-        View Releases ↗
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#home">
+        <div class="brand-icon">I</div>
+        <div>IMPERIAL <span>LAUNCHER</span></div>
       </a>
-    </article>
 
-    <article class="card">
-      <div class="icon">✦</div>
-      <h3>PKDEV</h3>
-      <p>More community news and project updates will be shared here.</p>
-    </article>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#updates">Updates</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-download"
+           href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
+           target="_blank" rel="noopener noreferrer">
+          Download
+        </a>
+      </nav>
+    </div>
+  </header>
 
-    <article class="card">
-      <div class="icon">🛠</div>
-      <h3>Made to Evolve</h3>
-      <p>Imperial Launcher will continue to grow with improvements and new ideas.</p>
-    </article>
+  <main>
 
-  </div>
-</section>
+    <section class="hero" id="home">
+      <div class="container">
 
-<section class="content container">
-  <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="release-badge">
+          <span>●</span>
+          VERSION 2.8.0 — RELEASED 🚀
+        </div>
 
-  <div class="faq">
-    <details>
-      <summary>Is Imperial Launcher available for Windows?</summary>
-      <p>Yes. Imperial Launcher is a Windows desktop application. Use the download link above to visit the latest release.</p>
-    </details>
+        <h1>
+          YOUR WORLD.<br>
+          <span>OUR LAUNCHER.</span>
+        </h1>
 
-    <details>
-      <summary>Where can I find the source code?</summary>
-      <p>The project repository is available on GitHub at resurect63/Imperial-Launcher.</p>
-    </details>
+        <p>
+          Experience Minecraft your way with Imperial Launcher.
+          A modern, clean and powerful launcher built for your world.
+        </p>
 
-    <details>
-      <summary>Does it support Modrinth?</summary>
-      <p>Yes. Modrinth integration is one of the launcher's features.</p>
-    </details>
-  </div>
-</section>
+        <div class="hero-buttons">
+          <a class="button button-primary"
+             href="https://github.com/resurect63/Imperial-Launcher/releases/latest"
+             target="_blank" rel="noopener noreferrer">
+            ↓ Download for Windows
+          </a>
 
-</main>
+          <a class="button button-secondary"
+             href="https://github.com/resurect63/Imperial-Launcher"
+             target="_blank" rel="noopener noreferrer">
+            View on GitHub ↗
+          </a>
+        </div>
 
-<footer class="container">
-  <div class="powered">
-    POWERED BY <strong>PKDEV</strong>
-  </div>
+        <div class="hero-note">
+          Built for Windows · Minecraft Java Edition
+        </div>
 
-  <div class="footer-links">
-    <a href="https://github.com/resurect63/Imperial-Launcher">GitHub</a>
-    <a href="https://github.com/resurect63/Imperial-Launcher/releases/latest">Latest Release</a>
-  </div>
+      </div>
+    </section>
 
-  <small style="color:#718780">
-    © 2026 Imperial Launcher. All rights reserved.
-  </small>
-</footer>
+    <section id="features">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>POWERFUL <span>FEATURES</span></h2>
+          <p>Everything you need for a better Minecraft experience.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast & Lightweight</h3>
+            <p>A clean launcher experience designed to keep things simple and responsive.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">◇</div>
+            <h3>Modrinth Integration</h3>
+            <p>Discover Minecraft mods and content through Modrinth integration.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Microsoft Authentication</h3>
+            <p>Sign in with your Microsoft account for your Minecraft experience.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>Modern Interface</h3>
+            <p>A polished interface designed to make launching Minecraft feel effortless.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🖥</div>
+            <h3>Built for Windows</h3>
+            <p>Designed as a desktop launcher for Windows users.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Your Minecraft Experience</h3>
+            <p>Bring your Minecraft setup together in one convenient place.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+
+        <div class="about-box">
+
+          <div>
+            <h2>WELCOME TO <span>IMPERIAL</span></h2>
+            <p>
+              Imperial Launcher is a modern Minecraft launcher created
+              to provide a clean, convenient and enjoyable experience.
+              With Microsoft authentication and Modrinth integration,
+              Imperial brings useful tools together in one desktop app.
+            </p>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat">
+              <strong>2.8.0</strong>
+              <span>Latest Release</span>
+            </div>
+
+            <div class="stat">
+              <strong>Windows</strong>
+              <span>Desktop Platform</span>
+            </div>
+
+            <div class="stat">
+              <strong>Modrinth</strong>
+              <span>Integration</span>
+            </div>
+
+            <div class="stat">
+              <strong>PKDEV</strong>
+              <span>Creator</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>NEWS & <span>UPDATES</span></h2>
+          <p>Stay up to date with Imperial Launcher.</p>
+        </div>
+
+        <div class="updates-grid">
+
+          <div class="update-card">
+            <span class="update-tag">LATEST RELEASE</span>
+            <h3>Version 2.8.0</h3>
+            <p>The latest Imperial Launcher release is available now.</p>
+          </div>
+
+          <div class="update-card">
+            <span class="update-tag">DEVELOPMENT</span>
+            <h3>Made by PKDEV</h3>
+            <p>Imperial Launcher is created and maintained by PKDEV.</p>
+          </div>
+
+          <div class="update-card">
+            <span class="update-tag">COMMUNITY</span>
+            <h3>Join the Journey</h3>
+            <p>Follow the project on GitHub for releases and updates.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>FREQUENTLY <span>ASKED QUESTIONS</span></h2>
+          <p>Quick answers about Imperial Launcher.</p>
+        </div>
+
+        <div class="faq-list">
+
+          <details>
+            <summary>What is Imperial Launcher?</summary>
+            <p>
+              Imperial Launcher is a modern desktop launcher for Minecraft Java Edition.
+            </p>
+          </details>
+
+          <details>
+            <summary>Which operating system is supported?</summary>
+            <p>
+              Imperial Launcher is designed for Windows.
+              Check the GitHub releases page for available downloads.
+            </p>
+          </details>
+
+          <details>
+            <summary>Where can I download it?</summary>
+            <p>
+              You can find the latest release on the official GitHub releases page.
+            </p>
+          </details>
+
+          <details>
+            <summary>Who created Imperial Launcher?</summary>
+            <p>
+              Imperial Launcher is created by PKDEV.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+
+      <div class="footer-brand">
+        IMPERIAL <span>LAUNCHER</span>
+      </div>
+
+      <div class="footer-credit">
+        POWERED BY PKDEV
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/resurect63/Imperial-Launcher"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+
+        <a href="https://github.com/resurect63/Imperial-Launcher/releases"
+           target="_blank" rel="noopener noreferrer">Releases</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for internal navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (event) {
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
